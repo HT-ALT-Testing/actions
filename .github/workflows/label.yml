@@ -8,9 +8,7 @@
 name: Label Pull Requests
 
 on:
-    pull_request:
-        types: [opened, synchronize, reopened]
-
+    - pull_request_target
 jobs:
     label_pull_request:
         runs-on: ubuntu-latest
