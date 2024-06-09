@@ -12,10 +12,13 @@ on:
 jobs:
     label_pull_request:
         runs-on: ubuntu-latest
+            permissions:
+              contents: read
+              pull-requests: write
 
         steps:
-            #- name: Checkout repository
-            #  uses: actions/checkout@v4
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
             # Here, you can add any other steps you need for your workflow
             # For example, running tests, linting, etc.
