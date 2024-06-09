@@ -14,8 +14,8 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
+            #- name: Checkout repository
+            #  uses: actions/checkout@v4
 
             # Here, you can add any other steps you need for your workflow
             # For example, running tests, linting, etc.
