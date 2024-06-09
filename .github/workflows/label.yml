@@ -5,15 +5,24 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Labeler
-on: 
-  - pull_request_target
+name: Label Pull Requests
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
 
 jobs:
-  label:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-    - uses: actions/labeler@v4
+    label_pull_request:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            # Here, you can add any other steps you need for your workflow
+            # For example, running tests, linting, etc.
+
+            - name: Apply labels to pull request
+              uses: actions/labeler@v5
+              with:
+                  repo-token: ${{ secrets.GITHUB_TOKEN }}
